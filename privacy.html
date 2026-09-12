@@ -64,14 +64,14 @@
     <div><b>MACRO PRO</b><span>CNC WORKSHOP TOOLS</span></div>
   </div>
   <h1>Privacy Policy</h1>
-  <p class="date">LAST UPDATED 7 SEPTEMBER 2026</p>
+  <p class="date">LAST UPDATED 12 SEPTEMBER 2026</p>
 </header>
 
 <div class="box key">
   <p style="margin:0"><strong>The short version.</strong> Every tool in MACRO PRO
-  runs on your phone. Your calculations, your programs and your lesson progress
-  never leave the device unless you sign in and ask for them to be backed up. We
-  do not sell anything to anybody, and we do not track you between apps.</p>
+  runs on your phone, and your work is stored there. If you sign in, a copy of it
+  is kept in your account as a safety net &mdash; nothing more than that. We do not
+  sell anything to anybody, and we do not track you between apps.</p>
 </div>
 
 <h2>Who we are</h2>
@@ -89,9 +89,26 @@ an account; the only thing you lose is the backup.</p>
   <tr><td>Email address</td><td>To identify your account and let you sign in on another phone</td><td>Firebase Authentication</td></tr>
   <tr><td>Display name</td><td>Shown to you in the app. Optional.</td><td>Firebase</td></tr>
   <tr><td>Profile photo</td><td>Shown to you in the app. Optional, and only you can see it.</td><td>Firebase Storage</td></tr>
-  <tr><td>Your saved programs and settings</td><td>So they come back when you sign in elsewhere</td><td>Cloud Firestore</td></tr>
+  <tr><td>A backup of your saved programs and settings</td>
+      <td>So your work survives a lost or replaced phone</td><td>Cloud Firestore</td></tr>
   <tr><td>Sign-in and tool-open counts</td><td>To know which tools are worth improving</td><td>Cloud Firestore</td></tr>
 </table>
+
+<h3>How rarely any of it is sent</h3>
+<p>The app reads and writes your work on the phone, always. The account copy is a
+backup, and it is treated like one:</p>
+<ul>
+  <li>It is sent <strong>when you leave the app</strong>, not while you work.</li>
+  <li>At most <strong>once every six hours</strong>, however much you do.</li>
+  <li><strong>Only if something actually changed.</strong> The app compares what
+      it holds against what it last sent and skips the upload when they match.</li>
+  <li>Your name and email are written back at most <strong>once a day</strong>,
+      not on every launch.</li>
+  <li>Tool-open counts are tallied on the phone and travel with the next backup.</li>
+</ul>
+<p>You can switch the backup off entirely in <em>Settings</em> and keep using
+everything, or press <em>Back up now</em> if you want certainty before handing
+the phone over.</p>
 
 <h3>Advertising</h3>
 <p>The free version shows adverts through <strong>Google AdMob</strong>. AdMob
@@ -114,6 +131,7 @@ thing: whether this account has bought the unlock.</p>
   <li><strong>No location.</strong> The app has no location permission at all.</li>
   <li><strong>No contacts, photos, calendar or microphone.</strong></li>
   <li><strong>No analytics on how you use the tools.</strong> Google Analytics is deliberately not enabled.</li>
+  <li><strong>No birthday.</strong> If you enter one it stays on the phone.</li>
   <li><strong>No reading of your files.</strong> The app only opens a file you have picked yourself.</li>
 </ul>
 
@@ -121,8 +139,14 @@ thing: whether this account has bought the unlock.</p>
 <p>The programs you generate are your work, and often your customer's part
 drawing in another form. They are treated accordingly:</p>
 <ul>
-  <li>They stay on your phone unless you sign in and leave the backup switched on.</li>
-  <li>If backed up, they are stored against your account and readable only by you. This is enforced by database rules on Google's servers, not just by the app.</li>
+  <li>They live on your phone. That is the copy the app uses, which is why every
+      tool still works with no signal at all.</li>
+  <li>If the backup is on, a copy is kept against your account and is readable
+      only by you. This is enforced by database rules on Google's servers, not
+      just by the app.</li>
+  <li><strong>You can take them with you.</strong> <em>Settings &rarr; Export</em>
+      writes every program and setting to a single plain file you keep. It is
+      readable text, not a format only this app can open.</li>
   <li><strong>They are never included in a support email.</strong> The diagnostics attached to a bug report carry the app version, your settings and your device model — never the contents of a program.</li>
   <li>We do not read them, analyse them, or use them for anything.</li>
 </ul>
@@ -131,6 +155,13 @@ drawing in another form. They are treated accordingly:</p>
 <p>For as long as your account exists. Delete the account and everything goes
 with it — see below. Delete the app without deleting the account and the backup
 stays, so that signing in on a new phone still restores your work.</p>
+<p>If you never sign in, nothing is kept anywhere but your phone, and uninstalling
+the app removes it. Export first if you want to keep it.</p>
+
+<h2>Your birthday, if you give one</h2>
+<p>Entirely optional, entered in Settings, and <strong>stored only on the phone</strong>.
+It is never sent to the account or to us, and it is used for one thing: to say
+happy birthday on the day. Clear the field and it is gone.</p>
 
 <h2>Deleting your account</h2>
 <div class="box">
